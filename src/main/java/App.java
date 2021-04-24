@@ -20,7 +20,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //display heroes
-        get("/heroes", (request, response) -> {
+        post("/heroes", (request, response) -> {
             Map<String,Object> model = new HashMap<String,Object>();
             String heroName= request.queryParams("hero-name");
             int heroAge= Integer.parseInt(request.queryParams("hero-age"));
