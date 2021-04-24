@@ -1,26 +1,53 @@
 package models;
 
-public class Hero {
-    String mName;
-    int mAge;
-    String mPower;
-    String mWeakness;
-    int squadId;
+import java.util.ArrayList;
 
-    public Hero(String name, int age, String power, String weakness, int id) {
-        this.mName = name;
-        this.mAge = age;
-        this.mPower = power;
-        this.mWeakness = weakness;
-        this.squadId = id;
+public class Hero {
+    public static ArrayList<Hero> heroes = new ArrayList<>();
+    private int id;
+    private String mName;
+    private int mAge;
+    private int overall;
+    private int intelligence;
+    private int strength;
+    private int speed;
+    private int durability;
+    private int power;
+    private int combat;
+    private String mWeakness;
+    private boolean hasSquad;
+    private int squadId;
+
+    public Hero(String mName, int mAge, int intelligence, int strength, int speed, int durability, int power, int combat, String mWeakness) {
+        this.id = heroes.size();
+        this.mName = mName;
+        this.mAge = mAge;
+        this.overall = Math.round((intelligence + strength + durability + power + combat) / 5);
+        this.intelligence = intelligence;
+        this.strength = strength;
+        this.speed = speed;
+        this.durability = durability;
+        this.power = power;
+        this.combat = combat;
+        this.mWeakness = mWeakness;
+        this.hasSquad = false;
+        heroes.add(this);
     }
 
+    public static ArrayList<Hero> getAll() {
+        return heroes;
+    }
 
-    public Hero(String name, int age, String power, String weakness) {
-        this.mName = name;
-        this.mAge = age;
-        this.mPower = power;
-        this.mWeakness = weakness;
+    public static void clearAllHeroes() {
+        heroes.clear();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getOverall() {
+        return this.overall;
     }
 
     public String getName() {
@@ -31,11 +58,39 @@ public class Hero {
         return mAge;
     }
 
-    public String getPower() {
-        return mPower;
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getDurability() {
+        return durability;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public int getCombat() {
+        return combat;
     }
 
     public String getWeakness() {
         return mWeakness;
     }
+
+    public boolean isHasSquad() {
+        return hasSquad;
+    }
 }
+
+
+
+
