@@ -42,6 +42,22 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //display heroes
+        get("/heroes", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Hero> heroes = Hero.getAll();
+            model.put("heroes", heroes);
+            return new ModelAndView(model, "heroes.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //display squads
+        get("/squads", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Squad> squads = Squad.getSquads();
+            model.put("squads", squads);
+            return new ModelAndView(model, "squads.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //post heroes
         post("/heroes", (request, response) -> {
             Map<String,Object> model = new HashMap<String,Object>();
             String heroName= request.queryParams("hero-name");
