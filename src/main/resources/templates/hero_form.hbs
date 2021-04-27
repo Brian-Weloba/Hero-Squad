@@ -5,23 +5,62 @@
 {{#partial "content"}}
     <h1>Welcome to create a hero!</h1>
     <form action="/heroes" method="post">
-        <div class="form-group">
-            <label for="hero-name">Superhero Name</label>
-            <input id="hero-name" name="hero-name" class="form-control" type="text">
-        </div>
-        <div class="form-group">
-            <label for="hero-age">Superhero Age</label>
-            <input id="hero-age" name="hero-age" class="form-control" type="number">
-        </div>
-        <div class="form-group">
-            <label for="hero-power">Special Power</label>
-            <input id="hero-power" name="hero-power" class="form-control" type="text">
-        </div>
-        <div class="form-group">
-            <label for="hero-weakness">Superhero Weakness</label>
-            <input id="hero-weakness" name="hero-weakness" class="form-control" type="text">
-        </div>
-        <button type="submit" class="btn">Create Hero</button>
+        {{#if squads}}
+            <div class="form-group">
+                <label for="hero-name">Superhero Name</label>
+                <input id="hero-name" name="hero-name" class="form-control" type="text" required>
+            </div>
+            <div class="form-group">
+                <label for="hero-age">Superhero Age</label>
+                <input id="hero-age" name="hero-age" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="intelligence">Intelligence</label>
+                <input id="intelligence" name="intelligence" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="strength">Strength</label>
+                <input id="strength" name="strength" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="speed">Speed</label>
+                <input id="speed" name="speed" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="durability">Durability</label>
+                <input id="durability" name="durability" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="power">Power</label>
+                <input id="power" name="power" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="combat">Combat</label>
+                <input id="combat" name="combat" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="hero-weakness">Superhero Weakness</label>
+                <input id="hero-weakness" name="hero-weakness" class="form-control" type="text" required>
+            </div>
+            <div class="form-group">
+                <label for="squadId">Squad</label>
+                <select id="squadId" name="squadId">
+                    {{#each squads}}
+                        <option value="{{id}}">{{squadName}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="txt_field">
+                <p><strong>Don't see the right squad? </strong><a href="/create-squad">Add a squad</a></p>
+            </div>
+            <button type="submit" class="btn btn-warning">Create Hero</button>
+        {{else}}
+            <div class="form-group">
+                <p><strong>Create a Squad first. </strong><a href="/create-squad" style="text-decoration : none;">Add a
+                    one here.</a></p>
+            </div>
+
+        {{/if}}
     </form>
 {{/partial}}
 
