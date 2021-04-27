@@ -1,5 +1,5 @@
 # Hero-Squad
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![repo-size](https://img.shields.io/github/repo-size/brian-weloba/Hero-Squad)[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://superhero-squad.herokuapp.com/)
+[![GitHub commits](https://img.shields.io/github/commits-since/Naereen/StrapDown.js/v1.0.0.svg)](https://GitHub.com/brian-weloba/Hero-Squad/commit/) ![repo-size](https://img.shields.io/github/repo-size/brian-weloba/Hero-Squad) [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://superhero-squad.herokuapp.com/)
 
 A spark web application that allows you to recruit a well-balanced team of superheroes  
 
@@ -16,10 +16,9 @@ A spark web application that allows you to recruit a well-balanced team of super
 <img alt="HTML5" src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>
 <img alt="CSS3" src="https://img.shields.io/badge/css3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
 <img alt="Bootstrap" src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white"/>
-HANDLEBARS
+HANDLEBARS  
 SPARK
 
-##Setup
 ## Setup
 * Fork this repo
 * Clone this repo 
@@ -29,10 +28,11 @@ SPARK
 
 Alternatively, view the live website [here](https://superhero-squad.herokuapp.com/)
 
-##License
-MIT License
-&copy Brian Weloba 2021
+## License  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ##Contact
 [<img alt="Instagram" src="https://img.shields.io/badge/@nyonges4%20-%23E4405F.svg?&style=for-the-badge&logo=Instagram&logoColor=white"/>](https://www.instagram.com/nyonges4/)
 [<img alt="Gmail" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />](mailto:bweloba@gmail.com)
+
+## © Brian Weloba 2021
