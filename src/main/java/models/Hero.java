@@ -18,8 +18,7 @@ public class Hero {
     private boolean hasSquad;
     private int squadId;
 
-    public Hero(String mName, int mAge, int intelligence, int strength, int speed, int durability, int power, int combat, String mWeakness) {
-        this.id = heroes.size();
+    public Hero(String mName, int mAge, int intelligence, int strength, int speed, int durability, int power, int combat, String mWeakness, int squadId) {
         this.mName = mName;
         this.mAge = mAge;
         this.overall = Math.round((intelligence + strength + durability + power + combat) / 5);
@@ -31,7 +30,9 @@ public class Hero {
         this.combat = combat;
         this.mWeakness = mWeakness;
         this.hasSquad = false;
+        this.squadId = squadId;
         heroes.add(this);
+        this.id = heroes.size();
     }
 
     public static ArrayList<Hero> getAll() {
