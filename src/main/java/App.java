@@ -30,7 +30,10 @@ public class App {
 
         // form to create hero
         get("/create-hero", (request, response) -> {
-            return new ModelAndView(new HashMap<String, Object>(), "hero_form.hbs");
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Squad> squads = Squad.getSquads();
+            model.put("squads", squads);
+            return new ModelAndView(model, "hero_form.hbs");
         }, new HandlebarsTemplateEngine());
 
         //form to create squad
