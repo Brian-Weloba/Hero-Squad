@@ -3,10 +3,47 @@
 {{/partial}}
 
 {{#partial "content"}}
-    <p>{{hero-name}}<br>
-        {{hero-age}}<br>
-        {{hero-power}}<br>
-        {{hero-weakness}}</p>
+    <h1>Heroes</h1>
+    <div class="table-responsive">
+    {{#if heroes}}
+            <table class="table table-hover table-bordered table-dark ">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Intelligence</th>
+                    <th scope="col">Strength</th>
+                    <th scope="col">Speed</th>
+                    <th scope="col">Durability</th>
+                    <th scope="col">Power</th>
+                    <th scope="col">Combat</th>
+                    <th scope="col">Overall</th>
+                    <th scope="col">weakness</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each heroes}}
+
+                    <tr>
+                        <td scope="row">{{name}}</td>
+                        <td>{{age}}</td>
+                        <td>{{intelligence}}</td>
+                        <td>{{strength}}</td>
+                        <td>{{speed}}</td>
+                        <td>{{durability}}</td>
+                        <td>{{power}}</td>
+                        <td>{{combat}}</td>
+                        <td>{{overall}}</td>
+                        <td>{{weakness}}</td>
+                    <tr>
+                {{/each}}
+                </tbody>
+            </table>
+
+    {{else}}
+        <p>No heroes</p>
+    {{/if}}
+    </div>
 {{/partial}}
 
 {{>layout.hbs}}
