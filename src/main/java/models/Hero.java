@@ -43,6 +43,14 @@ public class Hero {
         heroes.clear();
     }
 
+    public static Hero findById(int id) {
+        return heroes.get(id - 1);
+    }
+
+    public int getIndex(){
+        return heroes.indexOf(Hero.findById(id));
+    }
+
     public int getId() {
         return id;
     }
@@ -57,6 +65,10 @@ public class Hero {
 
     public int getAge() {
         return mAge;
+    }
+
+    public int getOverall() {
+        return overall;
     }
 
     public int getIntelligence() {
@@ -87,9 +99,22 @@ public class Hero {
         return mWeakness;
     }
 
-    public boolean isHasSquad() {
-        return hasSquad;
+    public int getSquadId() {
+        return squadId;
     }
+
+    public void setSquadId(int squadId) {
+        this.squadId = squadId;
+    }
+
+    public boolean isHasSquad() {
+        return this.hasSquad;
+    }
+
+    public void setHasSquad(boolean hasSquad) {
+        this.hasSquad = hasSquad;
+    }
+
 }
 
 
