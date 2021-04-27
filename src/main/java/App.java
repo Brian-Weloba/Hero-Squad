@@ -18,6 +18,11 @@ public class App {
         Hero flash = new Hero("Flash", 32, 88, 48, 100, 60, 100, 60, "cold temperature", 1);
         Hero wWoman = new Hero("Wonder Woman", 43, 88, 100, 79, 100, 100, 100, "Bind of Veils", 1);
         Hero superman = new Hero("Superman", 47, 94, 100, 100, 100, 100, 85, "Kryptonite", 1);
+        Hero cap = new Hero("Captain America",35,69,19,38,55,60,100,"Hydra serum",2);
+        Hero iron = new Hero("Iron Man", 52,100,85,58,85,100,64,"Human",2);
+        Hero tchala= new Hero("Black Panther",30,88,16,30,60,41,100,"Strong Nationalism",2);
+        Hero fant= new Hero("Mister Fantastic",37,100,18,32,70,33,64,"Extreme heat or cold",3);
+        Hero thing=new Hero("Thing", 46,75,84,21,100,38,80,"None",3);
 
         Squad jLeague = new Squad("Justice League", "Fight alien invasion", 7);
         Squad avengers = new Squad("Avengers", "World peace", 7);
@@ -71,6 +76,8 @@ public class App {
                     request.queryParams("hero-weakness"),
                     Integer.parseInt(request.queryParams("squadId")));
             ArrayList<Hero> heroes = Hero.getAll();
+            request.session().attribute("sHeroes",hero);
+            model.put("heroes", request.session().attribute("sHeroes"));
             model.put("heroes", heroes);
             return new ModelAndView(model, "heroes.hbs");
         }, new HandlebarsTemplateEngine());
@@ -82,6 +89,8 @@ public class App {
                     request.queryParams("fighting-cause"),
                     Integer.parseInt(request.queryParams("squad-size")));
             ArrayList<Squad> squads = Squad.getSquads();
+            request.session().attribute("sSquad",squad);
+            model.put("heroes", request.session().attribute("sSquad"));
             model.put("squads", squads);
             return new ModelAndView(model, "squads.hbs");
         }, new HandlebarsTemplateEngine());
@@ -102,5 +111,9 @@ public class App {
             model.put("heroes", squadHero);
             return new ModelAndView(model, "squad.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/*",(request, response) -> {
+            return new ModelAndView(new HashMap<String,Object>(),"404.hbs");
+        },new HandlebarsTemplateEngine());
     }
 }
