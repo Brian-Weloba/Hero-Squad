@@ -59,16 +59,20 @@ public class App {
 
         //post heroes
         post("/heroes", (request, response) -> {
-            Map<String,Object> model = new HashMap<String,Object>();
-            String heroName= request.queryParams("hero-name");
-            int heroAge= Integer.parseInt(request.queryParams("hero-age"));
-            String heroPower= request.queryParams("hero-power");
-            String heroWeakness= request.queryParams("hero-weakness");
-            model.put("hero-name",heroName);
-            model.put("hero-age", heroAge);
-            model.put("hero-power", heroPower);
-            model.put("hero-weakness", heroWeakness);
-            return  new ModelAndView(model,"heroes.hbs");
+            Map<String, Object> model = new HashMap<String, Object>();
+            Hero hero = new Hero(request.queryParams("hero-name"),
+                    Integer.parseInt(request.queryParams("hero-age")),
+                    Integer.parseInt(request.queryParams("intelligence")),
+                    Integer.parseInt(request.queryParams("strength")),
+                    Integer.parseInt(request.queryParams("speed")),
+                    Integer.parseInt(request.queryParams("durability")),
+                    Integer.parseInt(request.queryParams("power")),
+                    Integer.parseInt(request.queryParams("combat")),
+                    request.queryParams("hero-weakness"),
+                    Integer.parseInt(request.queryParams("squadId")));
+            ArrayList<Hero> heroes = Hero.getAll();
+            model.put("heroes", heroes);
+            return new ModelAndView(model, "heroes.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
