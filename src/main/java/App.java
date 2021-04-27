@@ -33,6 +33,11 @@ public class App {
             return new ModelAndView(new HashMap<String, Object>(), "hero_form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //form to create squad
+        get("/create-squad", (request, response) -> {
+            return new ModelAndView(new HashMap<String, Object>(), "squad_form.hbs");
+        }, new HandlebarsTemplateEngine());
+
         //display heroes
         post("/heroes", (request, response) -> {
             Map<String,Object> model = new HashMap<String,Object>();
