@@ -1,0 +1,66 @@
+{{#partial "title"}}
+    Create a Hero
+{{/partial}}
+
+{{#partial "content"}}
+    <h1>Welcome to create a hero!</h1>
+    <form action="/heroes" method="post">
+        {{#if squads}}
+            <div class="form-group">
+                <label for="hero-name">Superhero Name</label>
+                <input style="margin-top: 5px; border-color: #ffc107; color:#fff; background: none;" id="hero-name" name="hero-name" class="form-control" type="text" required>
+            </div>
+            <div class="form-group">
+                <label for="hero-age">Superhero Age</label>
+                <input style="margin-top: 5px; border-color: #ffc107; color:#fff; background: none;" id="hero-age" name="hero-age" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="intelligence">Intelligence</label>
+                <input style="margin-top: 5px; border-color: #ffc107; color:#fff; background: none;" id="intelligence" name="intelligence" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="strength">Strength</label>
+                <input style="margin-top: 5px; border-color: #ffc107; color:#fff; background: none;" id="strength" name="strength" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="speed">Speed</label>
+                <input style="margin-top: 5px; border-color: #ffc107; color:#fff; background: none;" id="speed" name="speed" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="durability">Durability</label>
+                <input style="margin-top: 5px;border-color: #ffc107; color:#fff; background: none;" id="durability" name="durability" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="power">Power</label>
+                <input style="margin-top: 5px; border-color: #ffc107; color:#fff; background: none;" id="power" name="power" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="combat">Combat</label>
+                <input style="margin-top: 5px; border-color: #ffc107; color:#fff; background: none;" id="combat" name="combat" class="form-control" type="number" required>
+            </div>
+            <div class="form-group">
+                <label for="hero-weakness">Superhero Weakness</label>
+                <input style="margin-top: 5px; border-color: #ffc107; color:#fff; background: none;" id="hero-weakness" name="hero-weakness" class="form-control" type="text" required>
+            </div>
+            <div class="form-group">
+                <label for="squadId">Squad</label>
+                <select style="margin-top: 5px; border-color: #ffc107; color:#fff; background: none;" class="form-select" id="squadId" name="squadId">
+                    {{#each squads}}
+                        <option style="margin-top: 5px; border-color: #ffc107; color:#fff; background: #212529;" value="{{id}}">{{squadName}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="txt_field" style="margin-top: 5px;">
+                <p><strong>Don't see the right squad? </strong><a href="/create-squad" style="text-decoration : underline crimson; color:#ffc107;">Add a squad</a></p>
+            </div>
+            <button style="margin-top: 5px;" type="submit" class="btn btn-warning">Create Hero</button>
+        {{else}}
+            <div class="form-group" style="margin-top: 5px;">
+                <p><strong>Create a Squad first. </strong><a href="/create-squad" style="text-decoration : underline crimson; color:#ffc107;">Add one here.</a></p>
+            </div>
+
+        {{/if}}
+    </form>
+{{/partial}}
+
+{{>layout.hbs}}

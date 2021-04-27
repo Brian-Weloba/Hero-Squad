@@ -1,0 +1,40 @@
+{{#partial "title"}}
+    Squads
+{{/partial}}
+
+{{#partial "content"}}
+    <h1>Squads</h1>
+    <div class="table-responsive">
+    {{#if squads}}
+        <table class="table table-hover table-bordered table-dark ">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Fighting Cause</th>
+                <th scope="col">Size</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each squads}}
+
+                    <tr>
+                        <td scope="row">{{squadName}}</td>
+                        <td>{{fightingCause}}</td>
+                        <td>{{size}}</td>
+                        <td><a href="/squad/{{id}}" style="text-decoration : underline crimson; color:#ffc107;">View Squad</a></td>
+                    </tr>
+
+            {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>No squads</p>
+    {{/if}}
+    </div>
+    <div>
+        <a class="btn btn-warning" href="/create-squad" role="button">Add Squad</a>
+    </div>
+{{/partial}}
+
+{{>layout.hbs}}
