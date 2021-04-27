@@ -1,6 +1,9 @@
+import models.Hero;
+import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,7 +12,18 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        //path to hope page
+
+        //initialize data
+        Hero batman = new Hero("Batman", 45, 100, 26, 27, 50, 47, 100, "Afraid of bats", 1);
+        Hero flash = new Hero("Flash", 32, 88, 48, 100, 60, 100, 60, "cold temperature", 1);
+        Hero wWoman = new Hero("Wonder Woman", 43, 88, 100, 79, 100, 100, 100, "Bind of Veils", 1);
+        Hero superman = new Hero("Superman", 47, 94, 100, 100, 100, 100, 85, "Kryptonite", 1);
+
+        Squad jLeague = new Squad("Justice League", "Fight alien invasion", 7);
+        Squad avengers = new Squad("Avengers", "World peace", 7);
+        Squad fantastic4 = new Squad("Fantastic 4", "Defeat Dr Doom", 4);
+
+        //path to home page
         get("/", (request, response) -> {
             return new ModelAndView(new HashMap<String, Object>(), "home.hbs");
         }, new HandlebarsTemplateEngine());
