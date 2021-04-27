@@ -38,15 +38,23 @@ public class Squad {
         return squadName;
     }
 
-    public void setSquadName(String squadName) {
-        this.squadName = squadName;
+    public String getFightingCause() {
+        return fightingCause;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setSquadHero(Hero newMember) {
+        squadHeroes.add(newMember);
+    }
+
+    public void deleteSquad() {
+        squads.remove(id - 1);
     }
 }
