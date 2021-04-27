@@ -74,5 +74,33 @@ public class App {
             model.put("heroes", heroes);
             return new ModelAndView(model, "heroes.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //post squads
+        post("/squads", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Squad squad = new Squad(request.queryParams("squad-name"),
+                    request.queryParams("fighting-cause"),
+                    Integer.parseInt(request.queryParams("squad-size")));
+            ArrayList<Squad> squads = Squad.getSquads();
+            model.put("squads", squads);
+            return new ModelAndView(model, "squads.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squad/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Squad> squads = Squad.getSquads();
+            int id = Integer.parseInt(request.params("id"));
+            Squad squad = squads.get(id-1);
+            ArrayList<Hero> heroes = Hero.getAll();
+            ArrayList<Hero> squadHero = new ArrayList<>();
+            for (Hero hero : heroes) {
+                if (hero.getSquadId() == id) {
+                    squadHero.add(hero);
+                }
+            }
+            model.put("squad", squad);
+            model.put("heroes", squadHero);
+            return new ModelAndView(model, "squad.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
