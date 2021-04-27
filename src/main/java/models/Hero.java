@@ -55,10 +55,6 @@ public class Hero {
         return id;
     }
 
-    public int getOverall() {
-        return this.overall;
-    }
-
     public String getName() {
         return mName;
     }
