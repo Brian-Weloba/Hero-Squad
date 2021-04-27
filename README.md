@@ -31,7 +31,7 @@ Alternatively, view the live website [here](https://superhero-squad.herokuapp.co
 ## License  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-##Contact
+## Contact
 [<img alt="Instagram" src="https://img.shields.io/badge/@nyonges4%20-%23E4405F.svg?&style=for-the-badge&logo=Instagram&logoColor=white"/>](https://www.instagram.com/nyonges4/)
 [<img alt="Gmail" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />](mailto:bweloba@gmail.com)
 
